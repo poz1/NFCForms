@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XLabs.Serialization</name>
+    </assembly>
+    <members>
+        <member name="T:XLabs.Serialization.IByteSerializer">
+            <summary>
+            Common interface for byte buffer serializer.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.IByteSerializer.SerializeToBytes``1(``0)">
+            <summary>
+            Serializes object to a byte array.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <returns>Serialized byte[] of the object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.IByteSerializer.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserializes byte array into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="data">Serialized object as byte buffer.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.IByteSerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserializes byte array into an object.
+            </summary>
+            <param name="data">Serialized object as byte buffer.</param>
+            <param name="type">Type of object to deserialize.</param>
+            <returns>Deserialized object.</returns>
+        </member>
+        <member name="T:XLabs.Serialization.IJsonSerializer">
+            <summary>
+            The JsonSerializer interface.
+            </summary>
+        </member>
+        <member name="T:XLabs.Serialization.ISerializer">
+            <summary>
+            Common serializer interface.
+            </summary>
+        </member>
+        <member name="T:XLabs.Serialization.IStreamSerializer">
+            <summary>
+            Defines a generic interface for stream serializer.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.IStreamSerializer.Serialize``1(``0,System.IO.Stream)">
+            <summary>
+            Serializes object to a stream.
+            </summary>
+            <typeparam name="T">Type of object to serialize.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <param name="stream">Stream to serialize to.</param>
+        </member>
+        <member name="M:XLabs.Serialization.IStreamSerializer.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes stream into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="stream">Stream to deserialize from.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.IStreamSerializer.Deserialize(System.IO.Stream,System.Type)">
+            <summary>
+            Deserializes stream into an object.
+            </summary>
+            <param name="stream">Stream to deserialize from.</param>
+            <param name="type">Type of object to deserialize.</param>
+            <returns>Deserialized object.</returns>
+        </member>
+        <member name="T:XLabs.Serialization.IStringSerializer">
+            <summary>
+            Serialization interface for strings.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.IStringSerializer.Serialize``1(``0)">
+            <summary>
+            Serializes object to a string.
+            </summary>
+            <typeparam name="T">Type of object to serialize.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <returns>Serialized string of the object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.IStringSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserializes string into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="data">Serialized object.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.IStringSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserializes string into an object.
+            </summary>
+            <param name="data">Serialized object.</param>
+            <param name="type">Type of object to deserialize.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.ISerializer.Flush">
+            <summary>
+            Cleans memory.
+            </summary>
+        </member>
+        <member name="P:XLabs.Serialization.ISerializer.Format">
+            <summary>
+            Gets the serialization format.
+            </summary>
+            <value>Serialization format.</value>
+        </member>
+        <member name="T:XLabs.Serialization.IProtoBufSerializer">
+            <summary>
+            The protobuf Serializer interface.
+            </summary>
+        </member>
+        <member name="T:XLabs.Serialization.IXmlSerializer">
+            <summary>
+            The XmlSerializer interface.
+            </summary>
+        </member>
+        <member name="T:XLabs.Serialization.SerializationFormat">
+            <summary>
+            Serialization format type.
+            </summary>
+        </member>
+        <member name="F:XLabs.Serialization.SerializationFormat.Custom">
+            <summary>
+            Custom undefined format.
+            </summary>
+        </member>
+        <member name="F:XLabs.Serialization.SerializationFormat.Json">
+            <summary>
+            JSON format.
+            </summary>
+        </member>
+        <member name="F:XLabs.Serialization.SerializationFormat.Xml">
+            <summary>
+            XML format.
+            </summary>
+        </member>
+        <member name="F:XLabs.Serialization.SerializationFormat.ProtoBuffer">
+            <summary>
+            ProtoBuffer format.
+            </summary>
+        </member>
+        <member name="F:XLabs.Serialization.SerializationFormat.Binary">
+            <summary>
+            Custom binary format.
+            </summary>
+        </member>
+        <member name="T:XLabs.Serialization.StreamSerializer">
+            <summary>
+            The stream serializer.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Flush">
+            <summary>
+            Cleans memory.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.SerializeToBytes``1(``0)">
+            <summary>
+            Serializes object to a string.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <returns>Serialized byte[] of the object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserializes string into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="data">Serialized object as byte buffer.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserializes string into an object.
+            </summary>
+            <param name="data">Serialized object as byte buffer.</param>
+            <param name="type">Type of object to deserialize.</param>
+            <returns>Deserialized object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Serialize``1(``0,System.IO.Stream)">
+            <summary>
+            Serializes object to a stream.
+            </summary>
+            <typeparam name="T">Type of object to serialize.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <param name="stream">Stream to serialize to.</param>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes stream into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="stream">Stream to deserialize from.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Deserialize(System.IO.Stream,System.Type)">
+            <summary>
+            Deserializes stream into an object.
+            </summary>
+            <param name="stream">Stream to deserialize from.</param>
+            <param name="type">Type of object to deserialize.</param>
+            <returns>Deserialized object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Serialize``1(``0)">
+            <summary>
+            Serializes object to a string.
+            </summary>
+            <typeparam name="T">Type of object to serialize.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <returns>Serialized string of the object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.StreamSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserializes string into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="data">Serialized object.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="P:XLabs.Serialization.StreamSerializer.Format">
+            <summary>
+            Gets the serialization format.
+            </summary>
+            <value>Serialization format.</value>
+        </member>
+        <member name="T:XLabs.Serialization.StringSerializer">
+            <summary>
+            The string serializer base class.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.StringSerializer.Flush">
+            <summary>
+            Cleans memory.
+            </summary>
+        </member>
+        <member name="P:XLabs.Serialization.StringSerializer.Format">
+            <summary>
+            Gets the serialization format.
+            </summary>
+            <value>Serialization format.</value>
+        </member>
+        <member name="T:XLabs.Serialization.StringSerializerExtensions">
+            <summary>
+            Serializer extensions.
+            </summary>
+        </member>
+        <member name="M:XLabs.Serialization.StringSerializerExtensions.SerializeToStream(XLabs.Serialization.IStringSerializer,System.Object,System.IO.Stream)">
+            <summary>
+            Serializes to stream.
+            </summary>
+            <param name="obj">Object to serialize.</param>
+            <param name="stream">Stream to serialize to.</param>
+        </member>
+        <member name="M:XLabs.Serialization.StringSerializerExtensions.DeserializeFromStream``1(XLabs.Serialization.IStringSerializer,System.IO.Stream)">
+            <summary>
+            Deserializes from stream.
+            </summary>
+            <returns>The deserialized object.</returns>
+            <param name="serializer">The string serializer.</param>
+            <param name="stream">Stream to deserialize from.</param>
+            <typeparam name="T">The type of object to deserialize.</typeparam>
+        </member>
+        <member name="M:XLabs.Serialization.StringSerializerExtensions.DeserializeFromStream(XLabs.Serialization.IStringSerializer,System.IO.Stream,System.Type)">
+            <summary>
+            Deserializes from stream.
+            </summary>
+            <returns>The deserialized object.</returns>
+            <param name="serializer">The string serializer.</param>
+            <param name="stream">Stream to deserialize from.</param>
+            <param name="type">The type of object to deserialize.</param>
+        </member>
+        <member name="M:XLabs.Serialization.StringSerializerExtensions.SerializeToWriter(XLabs.Serialization.IStringSerializer,System.Object,System.IO.TextWriter)">
+            <summary>
+            Serializes to writer.
+            </summary>
+            <param name="obj">Object to serialize.</param>
+            <param name="writer">Writer.</param>
+        </member>
+        <member name="M:XLabs.Serialization.StringSerializerExtensions.DeserializeFromReader``1(XLabs.Serialization.IStringSerializer,System.IO.TextReader)">
+            <summary>
+            Deserializes from reader.
+            </summary>
+            <returns>The serialized object from reader.</returns>
+            <param name="reader">Reader to deserialize from.</param>
+        </member>
+        <member name="M:XLabs.Serialization.SystemXmlSerializer.Serialize``1(``0,System.IO.Stream)">
+            <summary>
+            Serializes object to a stream
+            </summary>
+            <param name="obj">Object to serialize</param>
+            <param name="stream">Stream to serialize to</param>
+        </member>
+        <member name="M:XLabs.Serialization.SystemXmlSerializer.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes stream into an object
+            </summary>
+            <typeparam name="T">Type of object to serialize to</typeparam>
+            <param name="stream">Stream to deserialize from</param>
+            <returns>Object of type T</returns>
+        </member>
+        <member name="M:XLabs.Serialization.SystemXmlSerializer.Deserialize(System.IO.Stream,System.Type)">
+            <summary>
+            Deserializes stream into an object.
+            </summary>
+            <param name="stream">Stream to deserialize from.</param>
+            <param name="type">Type of object to deserialize.</param>
+            <returns>Deserialized object.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.SystemXmlSerializer.Deserialize``1(System.String)">
+            <summary>
+            Deserializes string into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="data">Serialized object.</param>
+            <returns>Object of type T.</returns>
+        </member>
+        <member name="M:XLabs.Serialization.SystemXmlSerializer.Serialize``1(``0)">
+            <summary>
+            Serializes object to a string.
+            </summary>
+            <typeparam name="T">Type of object to serialize.</typeparam>
+            <param name="obj">Object to serialize.</param>
+            <returns>Serialized string of the object.</returns>
+        </member>
+    </members>
+</doc>

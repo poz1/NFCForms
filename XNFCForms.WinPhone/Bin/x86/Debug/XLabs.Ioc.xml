@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XLabs.Ioc</name>
+    </assembly>
+    <members>
+        <member name="T:XLabs.Ioc.IDependencyContainer">
+            <summary>
+            Interface for dependency container. Extends on <see cref="T:XLabs.Ioc.IResolver"/> by providing the 
+            ability to register services.
+            </summary>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.GetResolver">
+            <summary>
+            Gets the resolver from the container
+            </summary>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IResolver"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.Register``1(``0)">
+            <summary>
+            Registers an instance of T to be stored in the container.
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <param name="instance">Instance of type T.</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.Register``2">
+            <summary>
+            Registers a type to instantiate for type T.
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <typeparam name="TImpl">Type to register for instantiation.</typeparam>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.RegisterSingle``2">
+            <summary>
+            Registers a type to instantiate for type T as singleton.
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <typeparam name="TImpl">Type to register for instantiation.</typeparam>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.Register``1(System.Type)">
+            <summary>
+            Tries to register a type
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <param name="type">Type of implementation</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.Register(System.Type,System.Type)">
+            <summary>
+            Tries to register a type
+            </summary>
+            <param name="type">Type to register.</param>
+            <param name="impl">Type that implements registered type.</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.IDependencyContainer.Register``1(System.Func{XLabs.Ioc.IResolver,``0})">
+            <summary>
+            Registers a function which returns an instance of type T.
+            </summary>
+            <typeparam name="T">Type of instance.</typeparam>
+            <param name="func">Function which returns an instance of T.</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="T:XLabs.Ioc.IResolver">
+            <summary>
+            Interface definition for dependency resolver.
+            </summary>
+        </member>
+        <member name="M:XLabs.Ioc.IResolver.Resolve``1">
+            <summary>
+            Resolve a dependency.
+            </summary>
+            <typeparam name="T">Type of instance to get.</typeparam>
+            <returns>An instance of {T} if successful, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.IResolver.Resolve(System.Type)">
+            <summary>
+            Resolve a dependency by type.
+            </summary>
+            <param name="type">Type of object.</param>
+            <returns>An instance to type if found as <see cref="T:System.Object"/>, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.IResolver.ResolveAll``1">
+            <summary>
+            Resolve a dependency.
+            </summary>
+            <typeparam name="T">Type of instance to get.</typeparam>
+            <returns>All instances of {T} if successful, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.IResolver.ResolveAll(System.Type)">
+            <summary>
+            Resolve a dependency by type.
+            </summary>
+            <param name="type">Type of object.</param>
+            <returns>All instances of type if found as <see cref="T:System.Object"/>, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.IResolver.IsRegistered(System.Type)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <returns><c>true</c> if the specified type is registered; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.IResolver.IsRegistered``1">
+            <summary>
+            Determines whether this instance is registered.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns><c>true</c> if this instance is registered; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:XLabs.Ioc.Resolver">
+            <summary>
+            Wrapper for IResolver instance for quick access.
+            </summary>
+        </member>
+        <member name="F:XLabs.Ioc.Resolver.instance">
+            <summary>
+            The <see cref="T:XLabs.Ioc.IResolver"/> instance.
+            </summary>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.SetResolver(XLabs.Ioc.IResolver)">
+            <summary>
+            Sets the resolver instance.
+            </summary>
+            <param name="resolver">Instance of IResolver implementation.</param>
+            <exception cref="T:System.InvalidOperationException">Instance can only be set once to prevent mix-ups.</exception>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.Resolve``1">
+            <summary>
+            Resolve a dependency.
+            </summary>
+            <typeparam name="T">Type of instance to get.</typeparam>
+            <returns>An instance of {T} if successful, otherwise null.</returns>
+            <exception cref="T:System.InvalidOperationException">IResolver instance has not been set.</exception>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.Resolve(System.Type)">
+            <summary>
+            Resolve a dependency by type.
+            </summary>
+            <param name="type">Type of object.</param>
+            <returns>An instance to type if found as <see cref="T:System.Object"/>, otherwise null.</returns>
+            <exception cref="T:System.InvalidOperationException">IResolver instance has not been set.</exception>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.ResolveAll``1">
+            <summary>
+            Resolve a dependency.
+            </summary>
+            <typeparam name="T">Type of instance to get.</typeparam>
+            <returns>All instances of {T} if successful, otherwise null.</returns>
+            <exception cref="T:System.InvalidOperationException">IResolver instance has not been set.</exception>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.ResolveAll(System.Type)">
+            <summary>
+            Resolve a dependency by type.
+            </summary>
+            <param name="type">Type of object.</param>
+            <returns>All instances of type if found as <see cref="T:System.Object"/>, otherwise null.</returns>
+            <exception cref="T:System.InvalidOperationException">IResolver instance has not been set.</exception>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.IsRegistered(System.Type)">
+            <summary>
+            Determines whether the specified type is registed.
+            </summary>
+            <param name="type">The type.</param>
+            <returns><c>true</c> if the specified type is registed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.Resolver.IsRegistered``1">
+            <summary>
+            Determines whether this instance is registered.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns><c>true</c> if this instance is registered; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:XLabs.Ioc.Resolver.Instance">
+            <summary>
+            Gets or sets the instance.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">IResolver instance has not been set.</exception>
+            <exception cref="T:System.InvalidOperationException">Instance can only be set once to prevent mix-ups.</exception>
+        </member>
+        <member name="P:XLabs.Ioc.Resolver.IsSet">
+            <summary>
+            Gets a value indicating whether resolver has been set.
+            </summary>
+        </member>
+        <member name="T:XLabs.Ioc.SimpleContainer">
+            <summary>
+            Simple dependency container implementation
+            </summary>
+        </member>
+        <member name="F:XLabs.Ioc.SimpleContainer._resolver">
+            <summary>
+            The _resolver
+            </summary>
+        </member>
+        <member name="F:XLabs.Ioc.SimpleContainer._services">
+            <summary>
+            The _services
+            </summary>
+        </member>
+        <member name="F:XLabs.Ioc.SimpleContainer._registeredServices">
+            <summary>
+            The _registered services
+            </summary>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Ioc.SimpleContainer"/> class.
+            </summary>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.GetResolver">
+            <summary>
+            Gets the resolver from the container
+            </summary>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IResolver"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Register``1(``0)">
+            <summary>
+            Registers an instance of T to be stored in the container.
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <param name="instance">Instance of type T.</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.SimpleContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Register``2">
+            <summary>
+            Registers a type to instantiate for type T.
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <typeparam name="TImpl">Type to register for instantiation.</typeparam>
+            <returns>An instance of <see cref="T:XLabs.Ioc.SimpleContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.RegisterSingle``2">
+            <summary>
+            Registers a type to instantiate for type T as singleton.
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <typeparam name="TImpl">Type to register for instantiation.</typeparam>
+            <returns>An instance of <see cref="T:XLabs.Ioc.IDependencyContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Register``1(System.Type)">
+            <summary>
+            Tries to register a type
+            </summary>
+            <typeparam name="T">Type of instance</typeparam>
+            <param name="type">Type of implementation</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.SimpleContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Register(System.Type,System.Type)">
+            <summary>
+            Tries to register a type
+            </summary>
+            <param name="type">Type to register.</param>
+            <param name="impl">Type that implements registered type.</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.SimpleContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Register``1(System.Func{XLabs.Ioc.IResolver,``0})">
+            <summary>
+            Registers a function which returns an instance of type T.
+            </summary>
+            <typeparam name="T">Type of instance.</typeparam>
+            <param name="func">Function which returns an instance of T.</param>
+            <returns>An instance of <see cref="T:XLabs.Ioc.SimpleContainer"/></returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.ResolveAll(System.Type)">
+            <summary>
+            Resolves all.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>IEnumerable&lt;System.Object&gt;.</returns>
+        </member>
+        <member name="T:XLabs.Ioc.SimpleContainer.Resolver">
+            <summary>
+            Class Resolver.
+            </summary>
+        </member>
+        <member name="F:XLabs.Ioc.SimpleContainer.Resolver._resolveObjectDelegate">
+            <summary>
+            The _resolve object delegate
+            </summary>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.#ctor(System.Func{System.Type,System.Collections.Generic.IEnumerable{System.Object}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.Ioc.SimpleContainer.Resolver"/> class.
+            </summary>
+            <param name="resolveObjectDelegate">The resolve object delegate.</param>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.Resolve``1">
+            <summary>
+            Resolve a dependency.
+            </summary>
+            <typeparam name="T">Type of instance to get.</typeparam>
+            <returns>An instance of {T} if successful, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.Resolve(System.Type)">
+            <summary>
+            Resolve a dependency by type.
+            </summary>
+            <param name="type">Type of object.</param>
+            <returns>An instance to type if found as <see cref="T:System.Object"/>, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.ResolveAll``1">
+            <summary>
+            Resolve a dependency.
+            </summary>
+            <typeparam name="T">Type of instance to get.</typeparam>
+            <returns>All instances of {T} if successful, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.ResolveAll(System.Type)">
+            <summary>
+            Resolve a dependency by type.
+            </summary>
+            <param name="type">Type of object.</param>
+            <returns>All instances of type if found as <see cref="T:System.Object"/>, otherwise null.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.IsRegistered(System.Type)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <returns><c>true</c> if the specified type is registered; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:XLabs.Ioc.SimpleContainer.Resolver.IsRegistered``1">
+            <summary>
+            Determines whether this instance is registered.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns><c>true</c> if this instance is registered; otherwise, <c>false</c>.</returns>
+        </member>
+    </members>
+</doc>

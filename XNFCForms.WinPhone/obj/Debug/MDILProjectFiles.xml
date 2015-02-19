@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Files>
+  <XAPFiles>
+    <File>resources.pri</File>
+    <File>XNFCForms.WinPhone.dll</File>
+    <File>Assets\BadgeLogo.png</File>
+    <File>Assets\Logo.png</File>
+    <File>Assets\SplashScreen.png</File>
+    <File>Assets\SquareTile150x150.png</File>
+    <File>Assets\SquareTile71x71.png</File>
+    <File>Assets\StoreLogo.png</File>
+    <File>Assets\Tiles\Splashscreen.png</File>
+    <File>Assets\WideLogo.png</File>
+    <File>SplashScreenImage.jpg</File>
+    <File>Assets\AlignmentGrid.png</File>
+    <File>Assets\ApplicationIcon.png</File>
+    <File>Assets\Tiles\FlipCycleTileLarge.png</File>
+    <File>Assets\Tiles\FlipCycleTileMedium.png</File>
+    <File>Assets\Tiles\FlipCycleTileSmall.png</File>
+    <File>Assets\Tiles\IconicTileMediumLarge.png</File>
+    <File>Assets\Tiles\IconicTileSmall.png</File>
+    <File>Toolkit.Content\ApplicationBar.Add.png</File>
+    <File>Toolkit.Content\ApplicationBar.Cancel.png</File>
+    <File>Toolkit.Content\ApplicationBar.Check.png</File>
+    <File>Toolkit.Content\ApplicationBar.Delete.png</File>
+    <File>Toolkit.Content\ApplicationBar.Select.png</File>
+    <File>AppManifest.xaml</File>
+    <File Type="PCL">ExifLib.dll</File>
+    <File>Microsoft.Phone.Controls.Toolkit.dll</File>
+    <File Type="PCL">NdefLibrary.dll</File>
+    <File Type="PCL">Poz1.XNFC.Abstractions.dll</File>
+    <File>Poz1.XNFC.WinPhone.dll</File>
+    <File>WPControls.dll</File>
+    <File Type="PCL">Xamarin.Forms.Core.dll</File>
+    <File>Xamarin.Forms.Platform.WP8.dll</File>
+    <File Type="PCL">Xamarin.Forms.Xaml.dll</File>
+    <File Type="PCL">XLabs.Core.dll</File>
+    <File Type="PCL">XLabs.Forms.dll</File>
+    <File>XLabs.Forms.WP8.dll</File>
+    <File Type="PCL">XLabs.Ioc.dll</File>
+    <File Type="PCL">XLabs.Platform.dll</File>
+    <File>XLabs.Platform.WP8.dll</File>
+    <File Type="PCL">XLabs.Serialization.dll</File>
+    <File>System.Windows.Interactivity.dll</File>
+    <File>Xamarin.Forms.Core.xml</File>
+    <File>Xamarin.Forms.Xaml.xml</File>
+    <File>XLabs.Core.xml</File>
+    <File>XLabs.Forms.xml</File>
+    <File>XLabs.Forms.WP8.xml</File>
+    <File>XLabs.Ioc.xml</File>
+    <File>XLabs.Platform.xml</File>
+    <File>XLabs.Serialization.xml</File>
+    <File>XNFCWhite.png</File>
+    <File>WMAppManifest.xml</File>
+    <File>AppxManifest.xml</File>
+  </XAPFiles>
+  <APPXFiles />
+</Files>

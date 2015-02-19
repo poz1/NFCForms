@@ -1,0 +1,464 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XLabs.Core</name>
+    </assembly>
+    <members>
+        <member name="T:XLabs.Data.ObservableObject">
+            <summary>
+            Base class enabling INotifyPropertyChanged implementation and methods for setting property values.
+            </summary>
+        </member>
+        <member name="M:XLabs.Data.ObservableObject.NotifyPropertyChanged(System.String)">
+            <summary>
+            Raises the PropertyChanged event.
+            </summary>
+            <param name="propertyName">The name of the property to raise the PropertyChanged event for.</param>
+        </member>
+        <member name="M:XLabs.Data.ObservableObject.NotifyPropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Raises the PropertyChanged event.
+            </summary>
+            <typeparam name="T">The 1st type parameter.</typeparam>
+            <param name="propertyExpression">The lambda expression of the property to raise the PropertyChanged event for.</param>
+        </member>
+        <member name="M:XLabs.Data.ObservableObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            The property changed event invoker.
+            </summary>
+            <param name="e">
+            The event arguments.
+            </param>
+        </member>
+        <member name="M:XLabs.Data.ObservableObject.SetProperty``1(``0@,``0,System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Changes the property if the value is different and raises the PropertyChanged event.
+            </summary>
+            <typeparam name="T">The 1st type parameter.</typeparam>
+            <param name="storage">Reference to current value.</param>
+            <param name="value">New value to be set.</param>
+            <param name="propertyExpression">The lambda expression of the property to raise the PropertyChanged event for.</param>
+            <returns><c>true</c> if new value, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:XLabs.Data.ObservableObject.SetProperty``1(``0@,``0,System.String)">
+            <summary>
+            Changes the property if the value is different and raises the PropertyChanged event.
+            </summary>
+            <typeparam name="T">The 1st type parameter.</typeparam>
+            <param name="storage">Reference to current value.</param>
+            <param name="value">New value to be set.</param>
+            <param name="propertyName">The name of the property to raise the PropertyChanged event for.</param>
+            <returns><c>true</c> if new value, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:XLabs.Data.ObservableObject.GetPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Gets property name from expression.
+            </summary>
+            <param name="propertyExpression">
+            The property expression.
+            </param>
+            <typeparam name="T">
+            </typeparam>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Throws an exception if expression is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Expression should be a member access lambda expression
+            </exception>
+        </member>
+        <member name="E:XLabs.Data.ObservableObject.PropertyChanged">
+            <summary>
+            Occurs when property is changed.
+            </summary>
+        </member>
+        <member name="T:XLabs.Enums.ImageOrientation">
+            <summary>
+            Specifies where the image will occur relative to the text on a
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.ImageOrientation.ImageToLeft">
+            <summary>
+            The image to left
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.ImageOrientation.ImageOnTop">
+            <summary>
+            The image on top
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.ImageOrientation.ImageToRight">
+            <summary>
+            The image to right
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.ImageOrientation.ImageOnBottom">
+            <summary>
+            The image on bottom
+            </summary>
+        </member>
+        <member name="T:XLabs.Enums.Orientation">
+            <summary>
+            Enum Orientation
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.None">
+            <summary>
+            The none
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.Portrait">
+            <summary>
+            The portrait
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.Landscape">
+            <summary>
+            The landscape
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.PortraitUp">
+            <summary>
+            The portrait up
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.PortraitDown">
+            <summary>
+            The portrait down
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.LandscapeLeft">
+            <summary>
+            The landscape left
+            </summary>
+        </member>
+        <member name="F:XLabs.Enums.Orientation.LandscapeRight">
+            <summary>
+            The landscape right
+            </summary>
+        </member>
+        <member name="T:XLabs.Enums.TextCellDetailLocation">
+            <summary>
+            Enum TextCellDetailLocation
+            </summary>
+        </member>
+        <member name="T:XLabs.Exceptions.InvalidNestingException">
+            <summary>
+            Thrown when an element or attached property is not withing the 
+            proper container
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.InvalidNestingException.#ctor">
+            <summary>
+            Hide any possible default constructor
+            Redundant I know, but it costs nothing
+            and communicates the design intent to
+            other developers.
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.InvalidNestingException.#ctor(System.Type,System.Type,System.Collections.Generic.List{System.String})">
+            <summary>
+            Constructs the exception and passes a meaningful
+            message to the base Exception
+            </summary>
+            <param name="nestedType">The inner type</param>
+            <param name="expectedContainer">The container type that was expected</param>
+            <param name="history">All parents considered in the search</param>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidNestingException.SearchPath">
+            <summary>
+            All parents considered in the search
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidNestingException.NestedType">
+            <summary>
+            The actual type of inner object
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidNestingException.ExpectedContainer">
+            <summary>
+            The expected type of the container
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidNestingException.NestedName">
+            <summary>
+            The name of the inner object
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidNestingException.ExpectedContainerName">
+            <summary>
+            The name of the expected container
+            </summary>
+        </member>
+        <member name="T:XLabs.Exceptions.InvalidVisualObjectException">
+            <summary>
+            Thrown when datatemplate inflates to an object 
+            that is neither a <see cref="!:Xamarin.Forms.View"/> object nor a
+            <see cref="!:Xamarin.Forms.ViewCell"/> object
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.InvalidVisualObjectException.#ctor">
+            <summary>
+            Hide any possible default constructor
+            Redundant I know, but it costs nothing
+            and communicates the design intent to
+            other developers.
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.InvalidVisualObjectException.#ctor(System.Type,System.String)">
+            <summary>
+            Constructs the exception and passes a meaningful
+            message to the base Exception
+            </summary>
+            <param name="inflatedtype">The actual type the datatemplate inflated to.</param>
+            <param name="name">The calling methods name, uses [CallerMemberName]</param>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidVisualObjectException.InflatedType">
+            <summary>
+            The actual type the datatemplate inflated to.
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.InvalidVisualObjectException.MemberName">
+            <summary>
+            The MemberName the exception occured in.
+            </summary>
+        </member>
+        <member name="T:XLabs.Exceptions.NoDataTemplateMatchException">
+            <summary>
+            exception thrown when a template cannot
+            be found for a supplied type
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.NoDataTemplateMatchException.#ctor">
+            <summary>
+            Hide any possible default constructor
+            Redundant I know, but it costs nothing
+            and communicates the design intent to
+            other developers.
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.NoDataTemplateMatchException.#ctor(System.Type,System.Collections.Generic.List{System.Type})">
+            <summary>
+            Constructs the exception and passses a meaningful
+            message to the base Exception
+            </summary>
+            <param name="tomatch">The type that a match was attempted for</param>
+            <param name="candidates">All types examined during the match process</param>
+        </member>
+        <member name="P:XLabs.Exceptions.NoDataTemplateMatchException.AttemptedMatch">
+            <summary>
+            The type that a match was attempted for
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.NoDataTemplateMatchException.TypesExamined">
+            <summary>
+            A list of all types that were examined
+            </summary>
+        </member>
+        <member name="P:XLabs.Exceptions.NoDataTemplateMatchException.TypeNamesExamined">
+            <summary>
+            A List of the names of all examined types (Simple name only)
+            </summary>
+        </member>
+        <member name="T:XLabs.Exceptions.PropertyNotFoundException">
+            <summary>
+            Thrown when a property could not be found on a Type
+            </summary>
+            Element created at 07/11/2014,3:35 AM by Charles
+        </member>
+        <member name="M:XLabs.Exceptions.PropertyNotFoundException.#ctor">
+            <summary>
+            Hide any possible default constructor
+            Redundant I know, but it costs nothing
+            and communicates the design intent to
+            other developers.
+            </summary>
+        </member>
+        <member name="M:XLabs.Exceptions.PropertyNotFoundException.#ctor(System.Type,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Constructs the exception and passes a meaningful
+            message to the base Exception
+            </summary>
+            <param name="etype">The Type that was inspected.</param>
+            <param name="property">The property Name.</param>
+            <param name="available">The available properties found on the Type.</param>
+            <param name="caller">The method that attempted to find the property.</param>
+            Element created at 07/11/2014,3:36 AM by Charles
+        </member>
+        <member name="P:XLabs.Exceptions.PropertyNotFoundException.InspectedType">
+            <summary>Gets the type of the inspected object.</summary>
+            <value>The type of the inspected.</value>
+            Element created at 07/11/2014,3:37 AM by Charles
+        </member>
+        <member name="P:XLabs.Exceptions.PropertyNotFoundException.InspectedTypeName">
+            <summary>Gets the type name of the inspected object.</summary>
+            <value>The name of the inspected type.</value>
+            Element created at 07/11/2014,3:37 AM by Charles
+        </member>
+        <member name="P:XLabs.Exceptions.PropertyNotFoundException.PropertyName">
+            <summary>Gets the name of the property.</summary>
+            <value>The name of the property.</value>
+            Element created at 07/11/2014,3:37 AM by Charles
+        </member>
+        <member name="P:XLabs.Exceptions.PropertyNotFoundException.AvailableProperties">
+            <summary>Gets the available properties.</summary>
+            <value>The available properties.</value>
+            Element created at 07/11/2014,3:37 AM by Charles
+        </member>
+        <member name="T:XLabs.NumericExtensions">
+            <summary>
+            Class NumericExtensions.
+            </summary>
+        </member>
+        <member name="M:XLabs.NumericExtensions.Clamp(System.Double,System.Double,System.Double)">
+            <summary>
+            Clamps the specified self.
+            </summary>
+            <param name="self">The self.</param>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <returns>System.Double.</returns>
+        </member>
+        <member name="M:XLabs.NumericExtensions.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Clamps the specified self.
+            </summary>
+            <param name="self">The self.</param>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="T:XLabs.EventArgs`1">
+            <summary>
+            Generic event argument class
+            </summary>
+            <typeparam name="T">Type of the argument</typeparam>
+        </member>
+        <member name="M:XLabs.EventArgs`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.EventArgs"/> class.
+            </summary>
+            <param name="value">Value of the argument</param>
+        </member>
+        <member name="P:XLabs.EventArgs`1.Value">
+            <summary>
+            Gets the value of the event argument
+            </summary>
+        </member>
+        <member name="T:XLabs.EventExtensions">
+            <summary>
+            Event extensions.
+            </summary>
+        </member>
+        <member name="M:XLabs.EventExtensions.Invoke``1(System.EventHandler{XLabs.EventArgs{``0}},System.Object,``0)">
+            <summary>
+            Raise the specified event.
+            </summary>
+            <param name="handler">Event handler.</param>
+            <param name="sender">Sender object.</param>
+            <param name="value">Argument value.</param>
+            <typeparam name="T">The value type.</typeparam>
+        </member>
+        <member name="T:XLabs.Icons">
+            <summary>
+            Font Awesome icons
+            Get all the icons at http://fortawesome.github.io/Font-Awesome/cheatsheet/
+            </summary>
+        </member>
+        <member name="M:XLabs.TaskUtils.TaskFromResult``1(``0)">
+            <summary>
+            Tasks from result.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="result">The result.</param>
+            <returns>Task&lt;T&gt;.</returns>
+        </member>
+        <member name="T:XLabs.RelayCommand">
+            <summary>
+            Class RelayCommand.
+            </summary>
+        </member>
+        <member name="F:XLabs.RelayCommand.execute">
+            <summary>
+            The _execute
+            </summary>
+        </member>
+        <member name="F:XLabs.RelayCommand.canExecute">
+            <summary>
+            The _can execute
+            </summary>
+        </member>
+        <member name="M:XLabs.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.RelayCommand"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+            <exception cref="T:System.ArgumentNullException">execute</exception>
+        </member>
+        <member name="M:XLabs.RelayCommand.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the RelayCommand class that
+            can always execute.
+            </summary>
+            <param name="execute">The execution logic.</param>
+            <exception cref="T:System.ArgumentNullException">If the execute argument is null.</exception>
+        </member>
+        <member name="M:XLabs.RelayCommand.RaiseCanExecuteChanged">
+            <summary>
+            Raises the can execute changed.
+            </summary>
+        </member>
+        <member name="M:XLabs.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+            <returns>true if this command can be executed; otherwise, false.</returns>
+        </member>
+        <member name="M:XLabs.RelayCommand.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+        </member>
+        <member name="E:XLabs.RelayCommand.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether the command should execute.
+            </summary>
+        </member>
+        <member name="T:XLabs.RelayCommand`1">
+            <summary>
+            Generic RelayCommand class.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:XLabs.RelayCommand`1.#ctor(System.Action{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.RelayCommand`1"/> class.
+            </summary>
+            <param name="execute">The execute action.</param>
+            <exception cref="T:System.ArgumentNullException">execute</exception>
+        </member>
+        <member name="M:XLabs.RelayCommand`1.#ctor(System.Action{`0},System.Predicate{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:XLabs.RelayCommand`1"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute predicate.</param>
+            <exception cref="T:System.ArgumentNullException">execute</exception>
+        </member>
+        <member name="M:XLabs.RelayCommand`1.RaiseCanExecuteChanged">
+            <summary>
+            Raise <see cref="E:XLabs.RelayCommand`1.CanExecuteChanged"/> event.
+            </summary>
+        </member>
+        <member name="E:XLabs.RelayCommand`1.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether the command should execute.
+            </summary>
+        </member>
+    </members>
+</doc>
