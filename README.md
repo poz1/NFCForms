@@ -12,7 +12,7 @@ Install from Nuget NFCForms ( http://www.nuget.org/packages/NFCForms/ )
 
 ```
 public NfcAdapter NFCdevice;
-public XNFC x;
+public NfcForms x;
 ```
 
 3: In the OnCreate method, before LoadApplication(), add
@@ -21,8 +21,8 @@ public XNFC x;
 NfcManager NfcManager =	(NfcManager)Android.App.Application.Context.GetSystemService(Context.NfcService);		
 NFCdevice = NfcManager.DefaultAdapter;
 
-Xamarin.Forms.DependencyService.Register<IXNFC,XNFC>();
-x = Xamarin.Forms.DependencyService.Get<IXNFC>() as XNFC;
+Xamarin.Forms.DependencyService.Register<INfcForms,NfcForms>();
+x = Xamarin.Forms.DependencyService.Get<INfcForms>() as NfcForms;
 ```
 
 4: after OnCreate() add
@@ -98,12 +98,12 @@ in the manifest file. Again, more info here ( http://developer.android.com/guide
 2: In MainPage.xaml.cs add
 
 ```
-public XNFC x;
+public NfcForms x;
 ```
 3: before LoadApplication() add
 ```
-Xamarin.Forms.DependencyService.Register<IXNFC, XNFC>();
-x = Xamarin.Forms.DependencyService.Get<IXNFC>() as XNFC;
+Xamarin.Forms.DependencyService.Register<INfcForms, NfcForms>();
+x = Xamarin.Forms.DependencyService.Get<INfcForms>() as NfcForms;
 ```
 
 On WindowsPhone only NDEF tags are supported so there is no need to specify technologies.
@@ -112,7 +112,7 @@ On WindowsPhone only NDEF tags are supported so there is no need to specify tech
 ###Read Tag
 We call the DependecyService to get the NFC Reader and we register to the NewTag event:
 ```
-IXNFC device = DependencyService.Get<IXNFC>();
+INfcForms device = DependencyService.Get<INfcForms>();
 device.NewTag += HandleNewTag;
 ```
 then when a compatible tag is scanned the event is fired and we receive an Xtag.
