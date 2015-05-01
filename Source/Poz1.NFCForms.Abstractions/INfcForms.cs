@@ -8,7 +8,7 @@ namespace NFCForms
 	{
 		bool IsAvailable { get; }
 
-	    void WriteTag(NdefMessage message);
+	        void WriteTag(NdefMessage message);
 
 		event EventHandler<XTag> NewTag;
 
@@ -30,7 +30,7 @@ namespace NFCForms
 		public bool IsWriteable;
 		public bool IsConnected;
 		public byte[] Id;
-        public int MaxSize;
+                public int MaxSize;
 	}
 }
 
