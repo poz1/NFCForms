@@ -115,8 +115,8 @@ We call the DependecyService to get the NFC Reader and we register to the NewTag
 INfcForms device = DependencyService.Get<INfcForms>();
 device.NewTag += HandleNewTag;
 ```
-then when a compatible tag is scanned the event is fired and we receive an Xtag.
-In Xtag.NdefMessage we have the NDEF message. Using NDEF Library ( http://github.com/mopius/ndef-nfc ) we can read the content.
+then when a compatible tag is scanned the event is fired and we receive an NfcFormsTag.
+In NfcFormsTag.NdefMessage we have the NDEF message. Using NDEF Library ( http://github.com/mopius/ndef-nfc ) we can read the content.
 
 ###Write Tag
 we use 
