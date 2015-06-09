@@ -129,3 +129,5 @@ Please note that this method is assuming the tag to be in place when it is calle
 ##Credits
 
 Written by Alessandro Pozone - www.POZ1.com thanks to the guys behind NDEF Library, without their project this would have been much more limited.
+
+License: http://www.gnu.org/licenses/gpl-3.0.html
