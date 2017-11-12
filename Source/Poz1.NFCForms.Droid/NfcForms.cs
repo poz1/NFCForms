@@ -89,24 +89,26 @@ namespace Poz1.NFCForms.Droid
 		public void OnNewIntent (object sender, Intent e)
 		{
 		    droidTag = e.GetParcelableExtra(NfcAdapter.ExtraTag) as Tag;
-
+		    if (droidTag != null)
+		    {
 			nfcTag.TechList = new List<string>(droidTag.GetTechList());
-			nfcTag.Id = droidTag.GetId();
-
+			nfcTag.Id = droidTag.GetId()
+			
 			if (GetNdef (droidTag) == null) 
 			{
-				nfcTag.IsNdefSupported = false;
+			    nfcTag.IsNdefSupported = false;
 			}
 			else 
 			{
-				nfcTag.IsNdefSupported = true;
-				Ndef ndef = GetNdef (droidTag);
-				nfcTag.NdefMessage = ReadNdef (ndef);
-				nfcTag.IsWriteable = ndef.IsWritable;
-				nfcTag.MaxSize = ndef.MaxSize;
+			    nfcTag.IsNdefSupported = true;
+			    Ndef ndef = GetNdef (droidTag);
+			    nfcTag.NdefMessage = ReadNdef (ndef);
+			    nfcTag.IsWriteable = ndef.IsWritable;
+			    nfcTag.MaxSize = ndef.MaxSize;
 			}
 
 			RaiseNewTag(nfcTag);
+		    }
 		}
 
 		public void WriteTag (NdefLibrary.Ndef.NdefMessage message)
