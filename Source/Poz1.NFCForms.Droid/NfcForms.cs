@@ -92,7 +92,7 @@ namespace Poz1.NFCForms.Droid
 		    if (droidTag != null)
 		    {
 			nfcTag.TechList = new List<string>(droidTag.GetTechList());
-			nfcTag.Id = droidTag.GetId()
+			nfcTag.Id = droidTag.GetId();
 			
 			if (GetNdef (droidTag) == null) 
 			{
