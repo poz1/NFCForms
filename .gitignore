@@ -1,0 +1,12 @@
+Example/.mfractor
+Example/.vs
+Example/NFCFormsSample/NFCFormsSample.Droid/bin
+Example/NFCFormsSample/NFCFormsSample.Droid/obj
+Example/packages
+Source/.mfractor
+Source/.vs
+Source/packages
+Source/Poz1.NFCForms.Abstract/bin
+Source/Poz1.NFCForms.Abstract/obj
+Source/Poz1.NFCForms.Droid/bin
+Source/Poz1.NFCForms.Droid/obj

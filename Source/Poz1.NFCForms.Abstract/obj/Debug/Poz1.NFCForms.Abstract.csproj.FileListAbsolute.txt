@@ -1,5 +1,0 @@
-\\psf\home\documents\visual studio 2013\Projects\Poz1.NFCForms.Droid\Poz1.NFCForms.Abstract\bin\Debug\Poz1.NFCForms.Abstract.dll
-\\psf\home\documents\visual studio 2013\Projects\Poz1.NFCForms.Droid\Poz1.NFCForms.Abstract\bin\Debug\Poz1.NFCForms.Abstract.pdb
-\\psf\home\documents\visual studio 2013\Projects\Poz1.NFCForms.Droid\Poz1.NFCForms.Abstract\bin\Debug\NdefLibrary.dll
-\\psf\home\documents\visual studio 2013\Projects\Poz1.NFCForms.Droid\Poz1.NFCForms.Abstract\obj\Debug\Poz1.NFCForms.Abstract.dll
-\\psf\home\documents\visual studio 2013\Projects\Poz1.NFCForms.Droid\Poz1.NFCForms.Abstract\obj\Debug\Poz1.NFCForms.Abstract.pdb
