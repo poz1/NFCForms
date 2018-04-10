@@ -69,17 +69,17 @@ namespace Poz1.NFCForms.Droid
 				return ndef;
 		}
 
-		private NdefLibrary.Ndef.NdefMessage ReadNdef(Ndef ndef)
-		{	
-			try
-			{
-				return NdefLibrary.Ndef.NdefMessage.FromByteArray(ndef.CachedNdefMessage.ToByteArray());
-			}
+        private NdefLibrary.Ndef.NdefMessage ReadNdef(Ndef ndef)
+		{
+            if (ndef == null || ndef.CachedNdefMessage == null)
+            {
+                return null;
+            }
 
-			catch
-			{
-				throw new Exception("Tag Error: No NDEF message found o NDEF not supported");
-			}
+            var bytes = ndef.CachedNdefMessage.ToByteArray();
+            var message = NdefLibrary.Ndef.NdefMessage.FromByteArray(bytes);
+
+            return message;
 		}
 
 		#endregion
