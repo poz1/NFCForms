@@ -144,8 +144,13 @@ namespace NFCFormsSample
 
         private ObservableCollection<string> readNDEFMEssage(NdefMessage message)
         {
-
             ObservableCollection<string> collection = new ObservableCollection<string>();
+
+            if (message == null)
+            {
+                return collection;
+            }
+
             foreach (NdefRecord record in message)
             {
                 // Go through each record, check if it's a Smart Poster
